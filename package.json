@@ -1,0 +1,21 @@
+{
+  "name": "hacker-news",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://ZheFeng@github.com/ZheFeng/hacker-news.git",
+  "author": "Zhe Feng <zhe@jumiduo.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-env": "^1.1.8",
+    "webpack": "2.2.0-rc.3"
+  }
+}
