@@ -16,10 +16,16 @@
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
     "babel-preset-env": "^1.1.8",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
+    "eslint": "^3.13.0",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
     "react-hot-loader": "3.0.0-beta.6",
     "webpack": "2.2.0-rc.3",
     "webpack-dev-server": "2.1.0-beta.0"
