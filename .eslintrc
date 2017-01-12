@@ -1,6 +1,12 @@
 {
   "extends": "airbnb",
   "parser": "babel-eslint",
+  "globals": {
+    "__DEV__": true,
+    "__PRERELEASE__": true,
+    "window": true,
+    "Image": true
+  },
   "settings": {
     "import/resolver": {
       "webpack": {

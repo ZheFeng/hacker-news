@@ -1,1 +1,1 @@
-# Yet another hacker news client (a better one)
+# Yet another hacker news client
