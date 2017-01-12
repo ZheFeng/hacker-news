@@ -16,24 +16,28 @@ const entry = {
     // only- means to only hot reload for successful updates
 
 
-    './app'
+    './app',
     // the entry point of our app
   ],
   // vendor: ['react', 'react-dom'],
-}
-const buildPath = 'static/webpack-build'
+};
+const buildPath = 'static/webpack-build';
 const filename = '[name].js';
 
 
-
 const webpackConfig = {
-  entry, output: { path: buildPath, filename },
+  entry,
+  output: { path: buildPath, filename },
   module: {
     rules: [
       {
         test: /\.js|jsx$/,
         exclude: /(node_modules|bower_components)/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
@@ -42,11 +46,11 @@ const webpackConfig = {
   },
   devServer: {
     hot: true,
-    contentBase: path.join(__dirname, "static"),
+    contentBase: path.join(__dirname, 'static'),
     compress: true,
-    port: 8080
+    port: 8080,
   },
-  devtool: "eval",
+  devtool: 'eval',
 
   plugins: [
     // new webpack.optimize.CommonsChunkPlugin({
@@ -59,7 +63,7 @@ const webpackConfig = {
     new webpack.NamedModulesPlugin(),
     // prints more readable module names in the browser console on HMR updates
   ],
-  performance: { hints: NODE_ENV === 'production' }
-}
+  performance: { hints: NODE_ENV === 'production' },
+};
 
 module.exports = webpackConfig;

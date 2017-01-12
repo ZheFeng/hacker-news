@@ -10,8 +10,10 @@
     "develop": "webpack-dev-server"
   },
   "dependencies": {
+    "bootstrap": "4.0.0-alpha.6",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-router": "next"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -21,12 +23,14 @@
     "babel-preset-env": "^1.1.8",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
+    "css-loader": "^0.26.1",
     "eslint": "^3.13.0",
     "eslint-config-airbnb": "^14.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.9.0",
     "react-hot-loader": "3.0.0-beta.6",
+    "style-loader": "^0.13.1",
     "webpack": "2.2.0-rc.3",
     "webpack-dev-server": "2.1.0-beta.0"
   }
