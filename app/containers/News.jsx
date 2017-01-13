@@ -12,6 +12,18 @@ function fetchItem(id) {
   .then(data => fromJS(data));
 }
 
+function fetchData(start, numberPerPage, ids) {
+  const news = ids.slice(start, start + numberPerPage);
+  return Promise.all(news.map(fetchItem))
+  .then(data => fromJS(data));
+}
+function fetchIds(topic) {
+  const newsApi = `https://hacker-news.firebaseio.com/v0/${topic}.json`;
+  return fetch(newsApi)
+  .then(response => response.json())
+  .then(data => fromJS(data));
+}
+
 class News extends Component {
   static displayName = 'News';
   static propTypes = {
@@ -28,23 +40,31 @@ class News extends Component {
     fetching: true,
   }
   componentWillMount() {
-    this.fetchIds();
-  }
-  componentDidUpdate(prevProps, prevState) {
     const { topic } = this.props;
-    const { start } = this.state;
-    if (prevProps.topic !== topic) {
-      this.fetchIds();
-    }
-    if (prevProps.topic === topic && prevState.start !== start) {
-      this.fetchData();
+    const { numberPerPage } = this.state;
+    fetchIds(topic)
+    .then(ids => this.setState({ ids }) || ids)
+    .then(fetchData.bind(this, 0, numberPerPage))
+    .then(data => this.setState({ data, fetching: false }));
+  }
+  componentWillReceiveProps(nextProps) {
+    const { topic } = nextProps;
+    const { numberPerPage } = this.state;
+    if (this.props.topic !== topic) {
+      this.cleanup();
+      fetchIds(topic)
+      .then(ids => this.setState({ ids }) || ids)
+      .then(fetchData.bind(null, 0, numberPerPage))
+      .then(data => this.setState({ data, fetching: false }));
     }
   }
   onPageChange(index) {
     const { numberPerPage } = this.state;
     const start = (index - 1) * numberPerPage;
     if (start !== this.state.start) {
-      this.setState({ start });
+      this.setState({ start, fetching: true, data: new List() });
+      fetchData(start, numberPerPage, this.state.ids)
+      .then(data => this.setState({ data, fetching: false }));
     }
   }
   render() {
@@ -67,35 +87,14 @@ class News extends Component {
       </div>
     );
   }
-  fetchData() {
-    const { start, numberPerPage } = this.state;
-    this.cleanupData();
-    if (!this.state.fetching) {
-      this.setState({ fetching: true });
-    }
-    const ids = this.state.ids.slice(start, start + numberPerPage);
-    return Promise.all(ids.map(fetchItem))
-    .then(data => this.setState({ data: fromJS(data), fetching: false }));
-  }
-  fetchIds() {
-    const { topic } = this.props;
-    const newsApi = `https://hacker-news.firebaseio.com/v0/${topic}.json`;
-    this.cleanupData();
-    if (this.state.start > 0) {
-      this.setState({ start: 0, end: 10 });
-    }
-    if (!this.state.fetching) {
-      this.setState({ fetching: true });
-    }
-    return fetch(newsApi)
-    .then(response => response.json())
-    .then(data => this.setState({ ids: new List(data) }))
-    .then(this.fetchData.bind(this));
-  }
-  cleanupData() {
-    if (this.state.data.size > 0) {
-      this.setState({ data: new List() });
-    }
+  cleanup() {
+    this.setState({
+      data: new List(),
+      ids: new List(),
+      start: 0,
+      numberPerPage: 10,
+      fetching: true,
+    });
   }
 }
 
