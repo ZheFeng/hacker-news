@@ -23,31 +23,41 @@ const App = () => (
   //    automatically
   <BrowserRouter>
     <div>
-      <ul>
-        {/* 3. Link to some paths with `Link` */}
-        <li><Link to="/">Top</Link></li>
-        <li><Link to="/newstories">News</Link></li>
-        <li><Link to="/beststories">Best</Link></li>
-        <li><Link to="/askstories">Ask</Link></li>
-        <li><Link to="/showstories">Show</Link></li>
-        <li><Link to="/jobstories">Job</Link></li>
-      </ul>
+      <nav
+        className="navbar navbar-toggleable-md navbar-light bg-faded "
+      >
+        <Link className="navbar-brand" to="/">Hacker News</Link>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item active">
+              <Link className="nav-link" to="/newstories">News</Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/beststories">Best</Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/askstories">Ask</Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/showstories">Show</Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/jobstories">Job</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <br />
+      <div className="container-fluid">
+        <Match
+          pattern="/:topic" render={({ params: { topic } }) => (
+            <News topic={topic} />
+          )}
+        />
+        <Match exactly pattern="/" component={News} />
 
-      <hr />
-      {/* 4. Render some `<Match/>` components.
-             When the current location matches the `pattern`
-             then the `component` will render.
-      */}
-      <Match
-        pattern="/:topic" render={({ params: { topic } }) => (
-          <News topic={topic} />
-        )}
-      />
-      <Match exactly pattern="/" component={News} />
-
-
-      {/* If none of those match, then a sibling `Miss` will render. */}
-      <Miss component={NoMatch} />
+        <Miss component={NoMatch} />
+      </div>
     </div>
   </BrowserRouter>
 );

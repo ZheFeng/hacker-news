@@ -4,10 +4,13 @@ import { List, fromJS } from 'immutable';
 import ContentList from '../components/ContentList';
 import Pagination from '../components/Pagination';
 
+function loadData(...args) {
+  return fetch(...args);
+}
 
 function fetchItem(id) {
   const newsApi = `https://hacker-news.firebaseio.com/v0/item/${id}.json`;
-  return fetch(newsApi)
+  return loadData(newsApi)
   .then(response => response.json())
   .then(data => fromJS(data));
 }
@@ -19,7 +22,7 @@ function fetchData(start, numberPerPage, ids) {
 }
 function fetchIds(topic) {
   const newsApi = `https://hacker-news.firebaseio.com/v0/${topic}.json`;
-  return fetch(newsApi)
+  return loadData(newsApi)
   .then(response => response.json())
   .then(data => fromJS(data));
 }
