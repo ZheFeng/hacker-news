@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { List, fromJS } from 'immutable';
+import { List, Map, fromJS } from 'immutable';
 
 import ContentList from '../components/ContentList';
 import Pagination from '../components/Pagination';
@@ -31,15 +31,19 @@ class News extends Component {
   static displayName = 'News';
   static propTypes = {
     topic: PropTypes.string,
+    selectedStory: PropTypes.instanceOf(Map),
+    onStoryClick: PropTypes.func,
   }
   static defaultProps = {
     topic: 'topstories',
+    selectedStory: new Map(),
+    onStoryClick: v => v,
   }
   state = {
     data: new List(),
     ids: new List(),
     start: 0,
-    numberPerPage: 20,
+    numberPerPage: 10,
     fetching: true,
   }
   componentWillMount() {
@@ -71,13 +75,20 @@ class News extends Component {
     }
   }
   render() {
+    const { onStoryClick, selectedStory } = this.props;
     const { start, numberPerPage, ids, fetching } = this.state;
     const total = Math.ceil(ids.size / numberPerPage);
     const current = (start / numberPerPage) + 1;
     const onPageChange = this::this.onPageChange;
     const node = fetching ? (
-      <div>Loading</div>
-    ) : (<ContentList data={this.state.data} />);
+      <div>Loading...</div>
+    ) : (
+      <ContentList
+        data={this.state.data}
+        onItemClick={onStoryClick}
+        selectedItem={selectedStory}
+      />
+    );
     return (
       <div>
         <Pagination
@@ -95,7 +106,7 @@ class News extends Component {
       data: new List(),
       ids: new List(),
       start: 0,
-      numberPerPage: 20,
+      numberPerPage: 10,
       fetching: true,
     });
   }

@@ -8,9 +8,7 @@ const codeStyle = {
 };
 const ContentItem = ({ data }) => (
   <div>
-    <a href={data.get('url')} target="_blank" rel="noopener noreferrer">
-      {data.get('title')}
-    </a>
+    {data.get('title')}
     <pre style={codeStyle} className="pre-scrollable">
       <code>
         {JSON.stringify(data.toObject(), null, ' ')}

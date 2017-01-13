@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { BrowserRouter, Match, Miss, Link } from 'react-router';
 
 import News from './containers/News';
@@ -16,50 +16,99 @@ NoMatch.propTypes = {
   }).isRequired,
 };
 
-function nav(text, { isActive, href, onClick }) {
+function nav(text, to) {
   return (
-    <li className={`nav-item ${isActive ? 'active' : ''}`}>
-      <a className="nav-link" onClick={onClick} href={href}>
-        {text}
-      </a>
-    </li>
+    <Link to={to}>
+      {
+        ({ isActive, href, onClick }) => (
+          <li className={`nav-item ${isActive ? 'active' : ''}`}>
+            <a className="nav-link" onClick={onClick} href={href}>
+              {text}
+            </a>
+          </li>
+        )
+      }
+    </Link>
   );
 }
 
-const App = () => (
-  // 2. render a `Router`, it will listen to the url changes
-  //    and make the location available to other components
-  //    automatically
-  <BrowserRouter>
-    <div>
-      <nav
-        className="navbar navbar-toggleable-md navbar-inverse bg-primary"
-      >
-        <Link className="navbar-brand" to="/">Hacker News</Link>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <Link to="/newstories">{nav.bind(null, 'News')}</Link>
-            <Link to="/beststories">{nav.bind(null, 'Best')}</Link>
-            <Link to="/askstories">{nav.bind(null, 'Ask')}</Link>
-            <Link to="/showstories">{nav.bind(null, 'Show')}</Link>
-            <Link to="/jobstories">{nav.bind(null, 'Job')}</Link>
-          </ul>
-        </div>
-      </nav>
-      <br />
-      <div className="container-fluid">
-        <Match
-          pattern="/:topic" render={({ params: { topic } }) => (
-            <News topic={topic} />
-          )}
-        />
-        <Match exactly pattern="/" component={News} />
-
-        <Miss component={NoMatch} />
+class App extends Component {
+  constructor() {
+    super();
+    this.setStory = this.setStory.bind(this);
+  }
+  state = {
+    story: null,
+  }
+  setStory(story) {
+    this.setState({ story });
+  }
+  render() {
+    const { story } = this.state;
+    const node = story ? (
+      <div className="col-10">
+        <pre>
+          <code>
+            {JSON.stringify(story.toObject(), null, ' ')}
+          </code>
+        </pre>
       </div>
-    </div>
-  </BrowserRouter>
-);
+    ) : null;
+    return (
+      <BrowserRouter>
+        <div>
+          <nav
+            className="navbar navbar-toggleable-md navbar-inverse bg-primary"
+          >
+            <Link className="navbar-brand" to="/">Hacker News</Link>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav">
+                {nav('News', '/newstories')}
+                {nav('Best', '/beststories')}
+                {nav('Ask', '/askstories')}
+                {nav('Show', '/showstories')}
+                {nav('Job', '/jobstories')}
+              </ul>
+            </div>
+          </nav>
+          <br />
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col">
+                <Match
+                  pattern="/:topic"
+                  render={({ params: { topic } }) => this.renderNews(topic)}
+                />
+                <Match
+                  pattern="/" exactly
+                  render={() => this.renderNews()}
+                />
+              </div>
+              {node}
+            </div>
+
+            <Miss component={NoMatch} />
+          </div>
+        </div>
+      </BrowserRouter>
+    );
+  }
+  renderNews(topic) {
+    const { story } = this.state;
+    const props = {
+      onStoryClick: this.setStory,
+    };
+    if (topic) {
+      props.topic = topic;
+    }
+    if (story) {
+      props.selectedStory = story;
+    }
+    return (
+      <News {...props} />
+    );
+  }
+}
 
 
 // function App({ name }) {
