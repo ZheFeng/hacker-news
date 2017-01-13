@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { BrowserRouter, Match, Miss } from 'react-router';
+import { BrowserRouter, Match, Miss, Link } from 'react-router';
 
 import News from './containers/News';
 
@@ -23,11 +23,28 @@ const App = () => (
   //    automatically
   <BrowserRouter>
     <div>
+      <ul>
+        {/* 3. Link to some paths with `Link` */}
+        <li><Link to="/">Top</Link></li>
+        <li><Link to="/newstories">News</Link></li>
+        <li><Link to="/beststories">Best</Link></li>
+        <li><Link to="/askstories">Ask</Link></li>
+        <li><Link to="/showstories">Show</Link></li>
+        <li><Link to="/jobstories">Job</Link></li>
+      </ul>
+
+      <hr />
       {/* 4. Render some `<Match/>` components.
              When the current location matches the `pattern`
              then the `component` will render.
       */}
+      <Match
+        pattern="/:topic" render={({ params: { topic } }) => (
+          <News topic={topic} />
+        )}
+      />
       <Match exactly pattern="/" component={News} />
+
 
       {/* If none of those match, then a sibling `Miss` will render. */}
       <Miss component={NoMatch} />
