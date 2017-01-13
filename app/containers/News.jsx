@@ -39,7 +39,7 @@ class News extends Component {
     data: new List(),
     ids: new List(),
     start: 0,
-    numberPerPage: 10,
+    numberPerPage: 20,
     fetching: true,
   }
   componentWillMount() {
@@ -95,7 +95,7 @@ class News extends Component {
       data: new List(),
       ids: new List(),
       start: 0,
-      numberPerPage: 10,
+      numberPerPage: 20,
       fetching: true,
     });
   }
