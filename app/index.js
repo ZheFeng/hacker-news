@@ -11,7 +11,7 @@ function render(Component) {
   const mountNode = document.getElementById('app');
   const node = (
     <AppContainer>
-      <Component name="World" />
+      <Component />
     </AppContainer>
   );
   ReactDOM.render(node, mountNode);

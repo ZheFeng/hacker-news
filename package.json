@@ -6,6 +6,7 @@
   "author": "Zhe Feng <zhe@jumiduo.com>",
   "license": "MIT",
   "scripts": {
+    "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "build": "rm -rf static/webpack-build && webpack",
     "develop": "webpack-dev-server"
   },
@@ -23,6 +24,7 @@
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-extensible-destructuring": "^4.0.1",
+    "babel-plugin-transform-flow-strip-types": "^6.21.0",
     "babel-preset-env": "^1.1.8",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
@@ -32,6 +34,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.9.0",
+    "flow-bin": "^0.37.4",
     "react-hot-loader": "3.0.0-beta.6",
     "style-loader": "^0.13.1",
     "webpack": "2.2.0-rc.3",

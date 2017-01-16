@@ -6,6 +6,7 @@
   ],
   "plugins": [
     "react-hot-loader/babel",
+    "transform-flow-strip-types",
     ["extensible-destructuring", {"mode": "optout", "impl": "immutable"}]
   ]
 }
