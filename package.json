@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
+    "extensible-runtime": "^4.0.1",
     "immutable": "^3.8.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -21,6 +22,7 @@
     "babel-core": "^6.21.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
+    "babel-plugin-extensible-destructuring": "^4.0.1",
     "babel-preset-env": "^1.1.8",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",

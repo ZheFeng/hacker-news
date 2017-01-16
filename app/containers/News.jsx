@@ -49,10 +49,11 @@ class News extends Component {
   componentWillMount() {
     const { topic } = this.props;
     const { numberPerPage } = this.state;
+    this.props.onStoryClick(null);
     fetchIds(topic)
     .then(ids => this.setState({ ids }) || ids)
     .then(fetchData.bind(this, 0, numberPerPage))
-    .then(data => this.setState({ data, fetching: false }));
+    .then(data => this.setData(data));
   }
   componentWillReceiveProps(nextProps) {
     const { topic } = nextProps;
@@ -62,7 +63,7 @@ class News extends Component {
       fetchIds(topic)
       .then(ids => this.setState({ ids }) || ids)
       .then(fetchData.bind(null, 0, numberPerPage))
-      .then(data => this.setState({ data, fetching: false }));
+      .then(data => this.setData(data));
     }
   }
   onPageChange(index) {
@@ -70,9 +71,14 @@ class News extends Component {
     const start = (index - 1) * numberPerPage;
     if (start !== this.state.start) {
       this.setState({ start, fetching: true, data: new List() });
+      this.props.onStoryClick(null);
       fetchData(start, numberPerPage, this.state.ids)
-      .then(data => this.setState({ data, fetching: false }));
+      .then(data => this.setData(data));
     }
+  }
+  setData(data) {
+    this.setState({ data, fetching: false });
+    this.props.onStoryClick(data.first());
   }
   render() {
     const { onStoryClick, selectedStory } = this.props;
@@ -109,6 +115,7 @@ class News extends Component {
       numberPerPage: 10,
       fetching: true,
     });
+    this.props.onStoryClick(null);
   }
 }
 

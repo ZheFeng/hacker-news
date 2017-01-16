@@ -43,15 +43,48 @@ class App extends Component {
   setStory(story) {
     this.setState({ story });
   }
+  renderNews(topic) {
+    const { story } = this.state;
+    const props = {
+      onStoryClick: this.setStory,
+    };
+    if (topic) {
+      props.topic = topic;
+    }
+    if (story) {
+      props.selectedStory = story;
+    }
+    return (
+      <News {...props} />
+    );
+  }
+  renderDetails() {
+    const { story } = this.state;
+    const { text, url, title } = story;
+    return (
+      <div className="card">
+        <div className="card-block">
+          <h4 className="card-title">{title}</h4>
+          <h6 className="card-subtitle mb-2 text-muted" />
+          <p className="card-text">{text}</p>
+          <a href={url} target="_black" className="card-link">{url}</a>
+          <br />
+          <br />
+          <br />
+          <pre>
+            <code>
+              {JSON.stringify(story.toObject(), null, ' ')}
+            </code>
+          </pre>
+        </div>
+      </div>
+    );
+  }
   render() {
     const { story } = this.state;
     const node = story ? (
       <div className="col-10">
-        <pre>
-          <code>
-            {JSON.stringify(story.toObject(), null, ' ')}
-          </code>
-        </pre>
+        {this.renderDetails()}
       </div>
     ) : null;
     return (
@@ -91,21 +124,6 @@ class App extends Component {
           </div>
         </div>
       </BrowserRouter>
-    );
-  }
-  renderNews(topic) {
-    const { story } = this.state;
-    const props = {
-      onStoryClick: this.setStory,
-    };
-    if (topic) {
-      props.topic = topic;
-    }
-    if (story) {
-      props.selectedStory = story;
-    }
-    return (
-      <News {...props} />
     );
   }
 }

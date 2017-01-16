@@ -9,18 +9,22 @@ const ContentList = ({ data, onItemClick, selectedItem }) => (
     {
       data.map(
         (item) => {
+          const { id, url } = item;
           const onClick = (e) => {
-            e.preventDefault();
+            if (!url) {
+              e.preventDefault();
+            }
             onItemClick(item);
           };
-          const active = selectedItem.get('id') === item.get('id') ?
+          const active = selectedItem.get('id') === id ?
             'active' : '';
           return (
             <a
-              href={item.get('url')}
+              href={url}
               onClick={onClick}
               className={`list-group-item ${active}`}
-              key={item.get('id')}
+              target="_black"
+              key={id}
             >
               <ContentItem data={item} />
             </a>
