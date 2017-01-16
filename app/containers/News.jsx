@@ -1,3 +1,4 @@
+// @flow
 import React, { Component, PropTypes } from 'react';
 import { List, fromJS } from 'immutable';
 

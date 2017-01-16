@@ -6,6 +6,7 @@ import News from './containers/News';
 import Layout from './components/Layout';
 import NoMatch from './components/NoMatch';
 
+
 const App = () => (
   <BrowserRouter>
     <Layout>
