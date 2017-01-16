@@ -16,10 +16,12 @@ const ContentItem = ({ data }) => (
   <div className="card" style={{ margin: '10px' }}>
     <div className="card-block">
       <h4 className="card-title">{data.get('title')}</h4>
-      <h6 className="card-subtitle mb-2 text-muted">{dateDisplay(data.get('time'))}</h6>
+      <h6 className="card-subtitle mb-2 text-muted">
+        {dateDisplay(data.get('time') * 1000)}
+      </h6>
       <p className="card-text">{data.get('text')}</p>
       <a
-        href="{data.get('url')}"
+        href={data.get('url')}
         className="card-link"
         target="_blank"
         rel="noopener noreferrer"
