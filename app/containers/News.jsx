@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { List, Map, fromJS } from 'immutable';
 
-import ContentList from '../components/ContentList';
-import Pagination from '../components/Pagination';
+import ContentItem from '../components/ContentItem';
 
 function loadData(...args) {
   return fetch(...args);
@@ -81,28 +80,12 @@ class News extends Component {
     this.props.onStoryClick(data.first());
   }
   render() {
-    const { onStoryClick, selectedStory } = this.props;
-    const { start, numberPerPage, ids, fetching } = this.state;
-    const total = Math.ceil(ids.size / numberPerPage);
-    const current = (start / numberPerPage) + 1;
-    const onPageChange = this::this.onPageChange;
+    const { fetching, data } = this.state;
     const node = fetching ? (
       <div>Loading...</div>
-    ) : (
-      <ContentList
-        data={this.state.data}
-        onItemClick={onStoryClick}
-        selectedItem={selectedStory}
-      />
-    );
+    ) : data.map(item => <ContentItem data={item} />);
     return (
       <div>
-        <Pagination
-          total={total || 1}
-          current={current}
-          onPageChange={onPageChange}
-          disabled={fetching}
-        />
         {node}
       </div>
     );

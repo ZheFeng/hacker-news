@@ -58,35 +58,7 @@ class App extends Component {
       <News {...props} />
     );
   }
-  renderDetails() {
-    const { story } = this.state;
-    const { text, url, title } = story;
-    return (
-      <div className="card">
-        <div className="card-block">
-          <h4 className="card-title">{title}</h4>
-          <h6 className="card-subtitle mb-2 text-muted" />
-          <p className="card-text">{text}</p>
-          <a href={url} target="_black" className="card-link">{url}</a>
-          <br />
-          <br />
-          <br />
-          <pre>
-            <code>
-              {JSON.stringify(story.toObject(), null, ' ')}
-            </code>
-          </pre>
-        </div>
-      </div>
-    );
-  }
   render() {
-    const { story } = this.state;
-    const node = story ? (
-      <div className="col-10">
-        {this.renderDetails()}
-      </div>
-    ) : null;
     return (
       <BrowserRouter>
         <div>
@@ -106,8 +78,8 @@ class App extends Component {
           </nav>
           <br />
           <div className="container-fluid">
-            <div className="row">
-              <div className="col">
+            <div className="row justify-content-md-center">
+              <div className="col-4">
                 <Match
                   pattern="/:topic"
                   render={({ params: { topic } }) => this.renderNews(topic)}
@@ -117,7 +89,6 @@ class App extends Component {
                   render={() => this.renderNews()}
                 />
               </div>
-              {node}
             </div>
 
             <Miss component={NoMatch} />
