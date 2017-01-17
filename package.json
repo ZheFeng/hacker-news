@@ -8,14 +8,23 @@
   "scripts": {
     "test": "jest",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
-    "build": "rm -rf static/webpack-build && webpack",
+    "build": "webpack",
     "predevelop": "flow-typed install --overwrite",
     "develop": "webpack-dev-server"
   },
   "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "static/coverage",
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
-    }
+    },
+    "unmockedModulePathPatterns": [
+      "node_modules/react/",
+      "node_modules/react-router/",
+      "node_modules/immutable/",
+      "node_modules/extensible-runtime/",
+      "node_modules/enzyme/"
+    ]
   },
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
@@ -37,6 +46,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "css-loader": "^0.26.1",
+    "enzyme": "^2.7.0",
     "eslint": "^3.13.0",
     "eslint-config-airbnb": "^14.0.0",
     "eslint-plugin-import": "^2.2.0",
@@ -45,6 +55,7 @@
     "flow-bin": "^0.37.4",
     "flow-typed": "^2.0.0",
     "jest": "^18.1.0",
+    "react-addons-test-utils": "^15.4.2",
     "react-hot-loader": "3.0.0-beta.6",
     "react-test-renderer": "^15.4.2",
     "style-loader": "^0.13.1",

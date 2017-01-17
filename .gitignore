@@ -1,7 +1,9 @@
 static/webpack-build
+static/coverage
 **/__snapshots__/*.snap
 flow-typed/npm
 .idea
+
 
 #bower #
 ###################
