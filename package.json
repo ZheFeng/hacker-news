@@ -13,6 +13,7 @@
     "develop": "webpack-dev-server"
   },
   "jest": {
+    "verbose": true,
     "collectCoverage": true,
     "coverageDirectory": "static/coverage",
     "transform": {

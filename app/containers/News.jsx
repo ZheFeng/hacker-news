@@ -40,7 +40,7 @@ class News extends Component {
     numberPerPage: 10,
     fetching: true,
   }
-  componentWillMount() {
+  componentDidMount() {
     const { topic } = this.props;
     const { numberPerPage } = this.state;
     fetchIds(topic)
@@ -75,7 +75,7 @@ class News extends Component {
     const { fetching, data } = this.state;
     const node = fetching ? (
       <div>Loading...</div>
-    ) : data.map(item => <ContentItem data={item} />);
+    ) : data.map(item => <ContentItem data={item} key={item.get('id')} />);
     return (
       <div>
         {node}

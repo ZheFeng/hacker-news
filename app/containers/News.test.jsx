@@ -4,12 +4,12 @@ import { BrowserRouter, Match, Miss } from 'react-router';
 import { shallow } from 'enzyme';
 import { Map } from 'immutable';
 
-import Layout from './Layout';
+import News from './News';
 
-describe('<Layout />', () => {
+describe('<News />', () => {
   it('Snapshot Test', () => {
     const component = renderer.create(
-      <BrowserRouter><Layout>Test</Layout></BrowserRouter>,
+      <News />,
   );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

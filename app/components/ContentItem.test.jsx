@@ -10,8 +10,8 @@ const item = new Map({
   time: 1484625248277,
 });
 
-describe('<Layout />', () => {
-  it('ContentItem Snapshot Test', () => {
+describe('<ContentItem />', () => {
+  it('Snapshot Test', () => {
     const component = renderer.create(
       <ContentItem data={item} />,
   );
@@ -20,7 +20,7 @@ describe('<Layout />', () => {
   });
 
 
-  it('ContentItem show title and time', () => {
+  it('show title and time', () => {
   // Render a checkbox with label in the document
     const contentItem = shallow(<ContentItem data={item} />);
 

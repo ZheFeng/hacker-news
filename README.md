@@ -7,7 +7,7 @@ Install <a href="https://yarnpkg.com/en/docs/install" target="_blank">yarn</a>
 Then
 ```
 yarn install
-NODE_ENV=develop yarn run develop
+NODE_ENV=development yarn run develop
 ```
 Then go to
 [http://localhost:8080](http://localhost:8080)
