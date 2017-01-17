@@ -9,7 +9,8 @@ Then
 yarn install
 NODE_ENV=develop yarn run develop
 ```
-Then go to <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>
+Then go to
+[http://localhost:8080](http://localhost:8080)
 
 ### How to test
 ```
@@ -17,4 +18,4 @@ NODE_ENV=test yarn test
 ```
 
 
-http://localhost:8080/coverage/lcov-report/index.html
+[Test Coverage](http://localhost:8080/coverage/lcov-report/)
