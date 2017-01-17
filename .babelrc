@@ -1,12 +1,30 @@
 {
   "presets": [
-    ["env", {"modules": false}],
     "stage-0",
     "react"
   ],
   "plugins": [
-    "react-hot-loader/babel",
     "transform-flow-strip-types",
     ["extensible-destructuring", {"mode": "optout", "impl": "immutable"}]
-  ]
+  ],
+  "env": {
+    "production": {
+      "presets": [
+        ["env", {"modules": false}]
+      ]
+    },
+    "development": {
+      "presets": [
+        ["env", {"modules": false}]
+      ],
+      "plugins": [
+        "react-hot-loader/babel",
+      ],
+    },
+    "test": {
+      "presets": [
+        ["env"]
+      ]
+    }
+  }
 }

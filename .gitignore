@@ -1,4 +1,5 @@
 static/webpack-build
+**/__snapshots__/*.snap
 flow-typed/npm
 .idea
 

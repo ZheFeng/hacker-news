@@ -26,7 +26,7 @@ function fetchIds(topic) {
 }
 
 class News extends Component {
-  static displayName = 'News';
+  static displayName: string = 'News';
   static propTypes = {
     topic: PropTypes.string,
   }
