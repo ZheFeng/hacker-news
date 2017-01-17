@@ -2,7 +2,7 @@
 
 ### How to run the project
 
-Install <a href="https://yarnpkg.com/" target="_blank">yarn</a>
+Install <a href="https://yarnpkg.com/en/docs/install" target="_blank">yarn</a>
 
 Then
 ```
