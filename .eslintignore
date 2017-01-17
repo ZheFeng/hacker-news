@@ -1,2 +1,4 @@
 node_modules
+static/webpack-build
+flow-typed/npm
 **/__tests__/*.js

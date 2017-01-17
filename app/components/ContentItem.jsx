@@ -1,4 +1,3 @@
-// @flow
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
 
@@ -12,6 +11,7 @@ function dateDisplay(time) {
   const d = new Date(time);
   return d.toDateString();
 }
+
 
 const ContentItem = ({ data }) => (
   <div className="card" style={{ margin: '10px' }}>

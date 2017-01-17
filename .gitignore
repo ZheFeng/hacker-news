@@ -1,4 +1,5 @@
 static/webpack-build
+flow-typed/npm
 .idea
 
 #bower #

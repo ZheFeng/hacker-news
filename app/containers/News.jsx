@@ -4,8 +4,8 @@ import { List, fromJS } from 'immutable';
 
 import ContentItem from '../components/ContentItem';
 
-function loadData(...args) {
-  return fetch(...args);
+function loadData(url: string) {
+  return fetch(url); // eslint-disable-line
 }
 function fetchItem(id) {
   const newsApi = `https://hacker-news.firebaseio.com/v0/item/${id}.json`;
@@ -48,7 +48,7 @@ class News extends Component {
     .then(fetchData.bind(this, 0, numberPerPage))
     .then(data => this.setData(data));
   }
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: { topic: string }) {
     const { topic } = nextProps;
     const { numberPerPage } = this.state;
     if (this.props.topic !== topic) {
@@ -59,7 +59,7 @@ class News extends Component {
       .then(data => this.setData(data));
     }
   }
-  onPageChange(index) {
+  onPageChange(index: number) {
     const { numberPerPage } = this.state;
     const start = (index - 1) * numberPerPage;
     if (start !== this.state.start) {
@@ -68,7 +68,7 @@ class News extends Component {
       .then(data => this.setData(data));
     }
   }
-  setData(data) {
+  setData(data: List) {
     this.setState({ data, fetching: false });
   }
   render() {
