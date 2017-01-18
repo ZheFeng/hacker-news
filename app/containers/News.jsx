@@ -1,29 +1,10 @@
 // @flow
 import React, { Component, PropTypes } from 'react';
-import { List, fromJS } from 'immutable';
+import { List } from 'immutable';
 
 import ContentItem from '../components/ContentItem';
+import { fetchIds, fetchData } from '../api';
 
-function loadData(url: string) {
-  return fetch(url);
-}
-function fetchItem(id) {
-  const newsApi = `https://hacker-news.firebaseio.com/v0/item/${id}.json`;
-  return loadData(newsApi)
-  .then(response => response.json())
-  .then(data => fromJS(data));
-}
-function fetchData(start, numberPerPage, ids) {
-  const news = ids.slice(start, start + numberPerPage);
-  return Promise.all(news.map(fetchItem))
-  .then(data => fromJS(data));
-}
-function fetchIds(topic) {
-  const newsApi = `https://hacker-news.firebaseio.com/v0/${topic}.json`;
-  return loadData(newsApi)
-  .then(response => response.json())
-  .then(data => fromJS(data));
-}
 
 class News extends Component {
   static displayName: string = 'News';

@@ -1,0 +1,7 @@
+exports[`<News /> Snapshot Test 1`] = `
+<div>
+  <div>
+    Loading...
+  </div>
+</div>
+`;
