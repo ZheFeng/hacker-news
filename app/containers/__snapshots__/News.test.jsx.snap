@@ -1,13 +1,6 @@
 exports[`<News /> Snapshot Test 1`] = `
 <div>
-  <div>
-    Loading...
-  </div>
-</div>
-`;
-
-exports[`<News /> Snapshot Test 2`] = `
-<div>
+  09:53:49 GMT+1100 (AEDT)
   <div>
     Loading...
   </div>

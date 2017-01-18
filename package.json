@@ -14,8 +14,8 @@
     "develop": "webpack-dev-server"
   },
   "jest": {
-    "verbose": true,
-    "collectCoverage": true,
+    "verbose": false,
+    "collectCoverage": false,
     "coverageDirectory": "static/coverage",
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
@@ -37,7 +37,9 @@
     "immutable": "^3.8.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-router": "next"
+    "react-redux": "^5.0.2",
+    "react-router": "next",
+    "redux": "^3.6.0"
   },
   "devDependencies": {
     "babel": "^6.5.2",

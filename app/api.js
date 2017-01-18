@@ -2,7 +2,7 @@
 import { List, fromJS } from 'immutable';
 
 function loadData(url: string) {
-  return fetch(url);
+  return fetch(url); // eslint-disable-line
 }
 function fetchItem(id: string) {
   const newsApi = `https://hacker-news.firebaseio.com/v0/item/${id}.json`;
@@ -13,7 +13,7 @@ function fetchItem(id: string) {
 export function fetchData(
   start: number,
   numberPerPage: number,
-  ids: List,
+  ids: List<string>,
 ) {
   const news = ids.slice(start, start + numberPerPage);
   return Promise.all(news.map(fetchItem))

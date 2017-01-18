@@ -1,6 +1,7 @@
 // @flow
 import React, { Component, PropTypes } from 'react';
 import { List } from 'immutable';
+import { connect } from 'react-redux';
 
 import ContentItem from '../components/ContentItem';
 import { fetchIds, fetchData } from '../api';
@@ -10,9 +11,11 @@ class News extends Component {
   static displayName: string = 'News';
   static propTypes = {
     topic: PropTypes.string,
+    count: PropTypes.string,
   }
   static defaultProps = {
     topic: 'topstories',
+    count: '',
   }
   state = {
     data: new List(),
@@ -56,9 +59,18 @@ class News extends Component {
     const { fetching, data } = this.state;
     const node = fetching ? (
       <div>Loading...</div>
-    ) : data.map(item => <ContentItem data={item} key={item.get('id')} />);
+    ) : data.map(item => (
+      <ContentItem
+        title={item.get('title')}
+        time={item.get('time')}
+        text={item.get('text')}
+        url={item.get('url')}
+        key={item.get('id')}
+      />
+    ));
     return (
       <div>
+        {this.props.count}
         {node}
       </div>
     );
@@ -74,4 +86,10 @@ class News extends Component {
   }
 }
 
-export default News;
+function mapStateToProps(state: string) {
+  return {
+    count: state,
+  };
+}
+
+export default connect(mapStateToProps)(News);

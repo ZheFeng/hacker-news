@@ -2,19 +2,18 @@
 /* global describe, it, expect */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Map } from 'immutable';
 
 import ContentItem from './ContentItem';
 
-const item = new Map({
-  title: 'test title',
-  time: 1484625248277,
-});
+const title = 'test title';
+const time = 1484625248277;
+const text = 'test text';
+const url = 'http://test.com';
 
 describe('<ContentItem />', () => {
   it('Snapshot Test', () => {
     const component = renderer.create(
-      <ContentItem data={item} />,
+      <ContentItem title={title} time={time} text={text} url={url} />,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

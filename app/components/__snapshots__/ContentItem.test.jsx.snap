@@ -17,28 +17,16 @@ exports[`<ContentItem /> Snapshot Test 1`] = `
       Mon Nov 27 49015
     </h6>
     <p
-      className="card-text" />
+      className="card-text">
+      test text
+    </p>
     <a
       className="card-link"
-      href={undefined}
+      href="http://test.com"
       rel="noopener noreferrer"
-      target="_blank" />
-    <pre
-      className="pre-scrollable"
-      style={
-        Object {
-          "color": "#ddd",
-          "display": "none",
-          "fontSize": "10px",
-        }
-      }>
-      <code>
-        {
-         \"title\": \"test title\",
-         \"time\": 1484625248277
-        }
-      </code>
-    </pre>
+      target="_blank">
+      http://test.com
+    </a>
   </div>
 </div>
 `;
