@@ -1,0 +1,71 @@
+exports[`<Layout /> Snapshot Test 1`] = `
+<div>
+  <nav
+    className="navbar navbar-toggleable-md navbar-inverse bg-primary">
+    <a
+      className="navbar-brand"
+      href="/"
+      onClick={[Function]}
+      style={Object {}}>
+      Hacker News
+    </a>
+    <div
+      className="collapse navbar-collapse"
+      id="navbarNav">
+      <ul
+        className="navbar-nav">
+        <li
+          className="nav-item ">
+          <a
+            className="nav-link"
+            href="/newstories"
+            onClick={[Function]}>
+            News
+          </a>
+        </li>
+        <li
+          className="nav-item ">
+          <a
+            className="nav-link"
+            href="/beststories"
+            onClick={[Function]}>
+            Best
+          </a>
+        </li>
+        <li
+          className="nav-item ">
+          <a
+            className="nav-link"
+            href="/askstories"
+            onClick={[Function]}>
+            Ask
+          </a>
+        </li>
+        <li
+          className="nav-item ">
+          <a
+            className="nav-link"
+            href="/showstories"
+            onClick={[Function]}>
+            Show
+          </a>
+        </li>
+        <li
+          className="nav-item ">
+          <a
+            className="nav-link"
+            href="/jobstories"
+            onClick={[Function]}>
+            Job
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br />
+  <div
+    className="container-fluid">
+    Test
+  </div>
+</div>
+`;

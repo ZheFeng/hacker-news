@@ -1,0 +1,12 @@
+exports[`<NoMatch /> Snapshot Test 1`] = `
+<div>
+  <h2>
+    Whoops
+  </h2>
+  <p>
+    Sorry but 
+    test
+     didn’t match any pages
+  </p>
+</div>
+`;

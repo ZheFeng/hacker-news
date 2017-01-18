@@ -1,0 +1,44 @@
+exports[`<ContentItem /> Snapshot Test 1`] = `
+<div
+  className="card"
+  style={
+    Object {
+      "margin": "10px",
+    }
+  }>
+  <div
+    className="card-block">
+    <h4
+      className="card-title">
+      test title
+    </h4>
+    <h6
+      className="card-subtitle mb-2 text-muted">
+      Mon Nov 27 49015
+    </h6>
+    <p
+      className="card-text" />
+    <a
+      className="card-link"
+      href={undefined}
+      rel="noopener noreferrer"
+      target="_blank" />
+    <pre
+      className="pre-scrollable"
+      style={
+        Object {
+          "color": "#ddd",
+          "display": "none",
+          "fontSize": "10px",
+        }
+      }>
+      <code>
+        {
+         \"title\": \"test title\",
+         \"time\": 1484625248277
+        }
+      </code>
+    </pre>
+  </div>
+</div>
+`;

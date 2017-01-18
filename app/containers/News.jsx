@@ -5,7 +5,7 @@ import { List, fromJS } from 'immutable';
 import ContentItem from '../components/ContentItem';
 
 function loadData(url: string) {
-  return fetch(url); // eslint-disable-line
+  return fetch(url);
 }
 function fetchItem(id) {
   const newsApi = `https://hacker-news.firebaseio.com/v0/item/${id}.json`;

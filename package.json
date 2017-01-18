@@ -6,6 +6,7 @@
   "author": "Zhe Feng <zhe@jumiduo.com>",
   "license": "MIT",
   "scripts": {
+    "eslint": "eslint",
     "test": "jest",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "build": "webpack",

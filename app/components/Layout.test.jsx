@@ -1,8 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies, max-nested-callbacks */
+/* global describe, it, expect */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { BrowserRouter, Match, Miss } from 'react-router';
-import { shallow } from 'enzyme';
-import { Map } from 'immutable';
+import { BrowserRouter } from 'react-router';
 
 import Layout from './Layout';
 
