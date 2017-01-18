@@ -49,7 +49,7 @@ class News extends Component {
       .then(data => this.setData(data));
     }
   }
-  setData(data: List) {
+  setData(data: List<*>) {
     this.setState({ data, fetching: false });
   }
   render() {

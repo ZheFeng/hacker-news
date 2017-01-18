@@ -5,3 +5,11 @@ exports[`<News /> Snapshot Test 1`] = `
   </div>
 </div>
 `;
+
+exports[`<News /> Snapshot Test 2`] = `
+<div>
+  <div>
+    Loading...
+  </div>
+</div>
+`;

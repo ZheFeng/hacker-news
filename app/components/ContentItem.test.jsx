@@ -2,7 +2,6 @@
 /* global describe, it, expect */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
 import { Map } from 'immutable';
 
 import ContentItem from './ContentItem';
@@ -16,18 +15,8 @@ describe('<ContentItem />', () => {
   it('Snapshot Test', () => {
     const component = renderer.create(
       <ContentItem data={item} />,
-  );
+    );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
-  });
-
-
-  it('show title and time', () => {
-  // Render a checkbox with label in the document
-    const contentItem = shallow(<ContentItem data={item} />);
-
-    const time = (new Date(item.get('time') * 1000)).toDateString();
-    expect(contentItem.find('.card-title').text()).toEqual(item.get('title'));
-    expect(contentItem.find('.card-subtitle').text()).toEqual(time);
   });
 });

@@ -1,16 +1,20 @@
-/* eslint-disable import/no-extraneous-dependencies, max-nested-callbacks */
+/*
+  eslint-disable
+  import/first, import/no-extraneous-dependencies, max-nested-callbacks
+*/
 /* global jest, describe, it, expect */
- import React from 'react';
- import renderer from 'react-test-renderer';
+jest.mock('../api');
 
- import News from './News';
+import React from 'react';
+import renderer from 'react-test-renderer';
 
- describe('<News />', () => {
-   it('Snapshot Test', () => {
-     const component = renderer.create(
-       <News />,
-  );
-     const tree = component.toJSON();
-     expect(tree).toMatchSnapshot();
-   });
- });
+import News from './News';
+
+describe('<News />', () => {
+  it('Snapshot Test', () => {
+    const component = renderer.create(
+      <News />,
+    );
+    expect(component.toJSON()).toMatchSnapshot();
+  });
+});
