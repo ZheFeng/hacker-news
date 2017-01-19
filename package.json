@@ -34,11 +34,13 @@
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
     "extensible-runtime": "^4.0.1",
+    "history": "^4.5.1",
     "immutable": "^3.8.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
     "react-router": "next",
+    "react-router-addons-controlled": "^0.0.1",
     "redux": "^3.6.0"
   },
   "devDependencies": {

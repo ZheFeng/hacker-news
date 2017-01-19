@@ -45,6 +45,7 @@ const webpackConfig = {
     extensions: ['.js', '.jsx', '.less', '.css'],
   },
   devServer: {
+    historyApiFallback: true,
     hot: true,
     contentBase: path.join(__dirname, 'static'),
     compress: true,
