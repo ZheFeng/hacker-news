@@ -11,7 +11,7 @@ export const setTopic = (topic: string = config.topic) => ({
 });
 
 
-export const navigate = (location, action) => ({
+export const navigate = (location: { pathname: string }, action: string) => ({
   type: 'NAVIGATE',
   location,
   action,

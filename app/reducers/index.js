@@ -1,6 +1,6 @@
 // @flow
 
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux-immutable';
 import news from './news';
 import topic from './topic';
 import router from './router';

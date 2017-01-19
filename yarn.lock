@@ -2299,6 +2299,10 @@ flow-bin@^0.37.4:
   version "0.37.4"
   resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.37.4.tgz#3d8da2ef746e80e730d166e09040f4198969b76b"
 
+flow-runtime@0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/flow-runtime/-/flow-runtime-0.0.6.tgz#570aeab33dca9d2357d137c0b0a2e141b7342410"
+
 flow-typed@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/flow-typed/-/flow-typed-2.0.0.tgz#b15cfb9b2b4419ab521665f84fa30d9ba646fb33"
@@ -4544,6 +4548,13 @@ reduce-function-call@^1.0.1:
   resolved "https://registry.yarnpkg.com/reduce-function-call/-/reduce-function-call-1.0.2.tgz#5a200bf92e0e37751752fe45b0ab330fd4b6be99"
   dependencies:
     balanced-match "^0.4.2"
+
+redux-immutable@^3.0.10:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/redux-immutable/-/redux-immutable-3.0.10.tgz#160c9ebfe59cf3f2fd4ee9baf0017cd56fe54649"
+  dependencies:
+    flow-runtime "0.0.6"
+    immutable "^3.8.1"
 
 redux@^3.6.0:
   version "3.6.0"

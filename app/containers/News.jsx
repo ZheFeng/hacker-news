@@ -6,7 +6,7 @@ import ContentList from '../components/ContentList';
 
 function mapStateToProps(state) {
   return {
-    list: state.news,
+    list: state.get('news'),
   };
 }
 

@@ -4,7 +4,7 @@ import { List } from 'immutable';
 
 import ContentItem from '../components/ContentItem';
 
-const ContentList = ({ list }) => (
+const ContentList = ({ list }: { list: List<*> }) => (
   <div>
     {
       list.map(item => (

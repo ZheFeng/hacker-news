@@ -64,9 +64,10 @@ App.propTypes = {
 };
 
 const AppBinded = connect(state => ({
-  location: state.router.location,
-  action: state.router.action,
-  topic: state.topic,
+  location: state.get('router').location,
+  action: state.get('router').action,
+  topic: state.get('topic'),
 }))(App);
 
-export default () => <Provider store={store}><AppBinded /></Provider>;
+const Application = () => <Provider store={store}><AppBinded /></Provider>;
+export default Application;

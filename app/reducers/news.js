@@ -1,7 +1,7 @@
 // @flow
 import { List, Map } from 'immutable';
 
-function itemFactory(id): Map {
+function itemFactory(id): Map<string, *> {
   return new Map({
     id,
     title: 'test title',
