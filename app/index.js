@@ -7,7 +7,7 @@ import { AppContainer } from 'react-hot-loader'; // eslint-disable-line
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Store from './Store';
+import Store from './reducers';
 import App from './App';
 
 const store = createStore(Store);

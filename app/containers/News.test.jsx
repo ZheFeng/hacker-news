@@ -8,7 +8,7 @@ import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import Store from '../Store';
+import Store from '../reducers';
 
 const store = createStore(Store);
 

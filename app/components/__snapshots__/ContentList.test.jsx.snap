@@ -1,4 +1,4 @@
-exports[`<News /> Snapshot Test 1`] = `
+exports[`<ContentList /> Snapshot Test 1`] = `
 <div>
   <div
     className="card"
