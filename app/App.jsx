@@ -12,7 +12,6 @@ import Store from './reducers';
 import history from './history';
 import { navigate } from './actions';
 
-
 const store = createStore(Store);
 
 const App = ({ dispatch, location, action, topic }) => (
@@ -41,7 +40,7 @@ const App = ({ dispatch, location, action, topic }) => (
           <p>{topic}</p>
           <Match
             pattern="/:topic"
-            render={({ params: { topic } }) => <News />}
+            render={() => <News />}
           />
           <Match
             pattern="/" exactly

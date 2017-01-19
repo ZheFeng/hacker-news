@@ -3,7 +3,11 @@ import config from '../config';
 import history from '../history';
 
 function getTopic(location: { pathname: string }) {
-  return location.pathname.substr(1) || config.topic;
+  const { pathname } = location;
+  if (pathname.startsWith('/') && !pathname.substr(1).includes('/')) {
+    return pathname.substr(1) || config.topic;
+  }
+  return config.topic;
 }
 
 export default (
