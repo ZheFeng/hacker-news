@@ -18,10 +18,13 @@ function listFactory(list: List<*>): List<*> {
 }
 
 
-const news = (
+export default (
   state: List<*> = listFactory(new List()),
   action: { type: string },
 ) => {
+  if (!action) {
+    return state;
+  }
   switch (action.type) {
     case 'FETCH':
       return listFactory(state);
@@ -31,5 +34,3 @@ const news = (
       return state;
   }
 };
-
-export default news;

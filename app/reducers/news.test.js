@@ -9,7 +9,6 @@ import { fetch } from '../actions';
 
 describe('reducer:news', () => {
   it('return List', () => {
-    const result = news(undefined, fetch());
-    expect(List.isList(result)).toBe(true);
+    expect(List.isList(news())).toBe(true);
   });
 });
