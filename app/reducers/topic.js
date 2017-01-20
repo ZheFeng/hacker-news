@@ -1,6 +1,9 @@
 // @flow
+import { handleActions } from 'redux-actions';
+
 import config from '../config';
 import history from '../history';
+import actions from '../actions';
 
 function getTopic(location: { pathname: string }) {
   const { pathname } = location;
@@ -10,19 +13,7 @@ function getTopic(location: { pathname: string }) {
   return config.topic;
 }
 
-export default (
-  state: string = getTopic(history.location),
-  action: { type: string, topic: string, location: { pathname:string } },
-) => {
-  if (!action) {
-    return state;
-  }
-  switch (action.type) {
-    case 'SET_TOPIC':
-      return action.topic;
-    case 'NAVIGATE':
-      return getTopic(action.location);
-    default:
-      return state;
-  }
-};
+export default handleActions({
+  [actions.setTopic]: (state, { payload }) => payload,
+  [actions.navigate]: (state, { payload }) => getTopic(payload.location),
+}, getTopic(history.location));

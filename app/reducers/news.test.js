@@ -4,11 +4,11 @@
 import { List } from 'immutable';
 
 import news from './news';
-import { fetch } from '../actions';
+import actions from '../actions';
 
 
 describe('reducer:news', () => {
   it('return List', () => {
-    expect(List.isList(news())).toBe(true);
+    expect(List.isList(news(new List(), actions.fetch()))).toBe(true);
   });
 });

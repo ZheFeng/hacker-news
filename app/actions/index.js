@@ -1,18 +1,8 @@
 // @flow
-import config from '../config';
+import { createActions } from 'redux-actions';
 
-export const fetch = () => ({
-  type: 'FETCH',
-});
-
-export const setTopic = (topic: string = config.topic) => ({
-  type: 'SET_TOPIC',
-  topic,
-});
-
-
-export const navigate = (location: { pathname: string }, action: string) => ({
-  type: 'NAVIGATE',
-  location,
-  action,
-});
+export default createActions(
+  'FETCH',
+  'SET_TOPIC',
+  'NAVIGATE',
+);

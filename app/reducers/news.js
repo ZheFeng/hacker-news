@@ -1,5 +1,8 @@
 // @flow
 import { List, Map } from 'immutable';
+import { handleActions } from 'redux-actions';
+
+import actions from '../actions';
 
 function itemFactory(id): Map<string, *> {
   return new Map({
@@ -17,20 +20,25 @@ function listFactory(list: List<*>): List<*> {
   return list.concat(newList);
 }
 
+export default handleActions({
+  [actions.fetch]: state => listFactory(state),
+  [actions.setTopic]: () => listFactory(new List()),
+}, listFactory(new List()));
 
-export default (
-  state: List<*> = listFactory(new List()),
-  action: { type: string },
-) => {
-  if (!action) {
-    return state;
-  }
-  switch (action.type) {
-    case 'FETCH':
-      return listFactory(state);
-    case 'SET_TOPIC':
-      return listFactory(new List());
-    default:
-      return state;
-  }
-};
+
+// export default (
+//   state: List<*> = listFactory(new List()),
+//   action: { type: string },
+// ) => {
+//   if (!action) {
+//     return state;
+//   }
+//   switch (action.type) {
+//     case 'FETCH':
+//       return listFactory(state);
+//     case 'SET_TOPIC':
+//       return listFactory(new List());
+//     default:
+//       return state;
+//   }
+// };
