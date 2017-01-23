@@ -18,4 +18,4 @@ NODE_ENV=test yarn test
 ```
 
 
-[Test Coverage](http://localhost:8080/coverage/lcov-report/)
+[Test Coverage](http://localhost:8080/coverage/lcov-report/index.html)

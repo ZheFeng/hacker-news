@@ -1,13 +1,26 @@
 // @flow
 import { createStore, applyMiddleware } from 'redux';
-import { createEpicMiddleware } from 'redux-observable';
+import { createEpicMiddleware, combineEpics } from 'redux-observable';
 import createLogger from 'redux-logger';
 
-// import actions from '.actions';
+import actions from './actions';
 import Store from './reducers';
+import { fetchNews$ } from './api';
 
-const fetchEpic = action$ => action$.ofType('FETCH').mapTo({ type: 'setNews' });
-const epicMiddleware = createEpicMiddleware(fetchEpic);
+
+function fetchEpic(action$, store) {
+  return action$.ofType('FETCH')
+  .mergeMap(action => fetchNews$(store.getState().get('topic'), 0, 10).map(news => actions.setNews(news)));
+}
+function navigateEpic(action$, store) {
+  return action$.ofType('NAVIGATE').mergeMap(action => fetchNews$(store.getState().get('topic'), 0, 10).map(news => actions.setNews(news)));
+}
+
+const rootEpic = combineEpics(
+  fetchEpic,
+  navigateEpic,
+);
+const epicMiddleware = createEpicMiddleware(rootEpic);
 
 const logger = createLogger({
   stateTransformer: state => state.toJS(),

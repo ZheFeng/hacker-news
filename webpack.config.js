@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const NODE_ENV = process.env.NODE_ENV;
 const entry = {
@@ -63,6 +64,8 @@ const webpackConfig = {
 
     new webpack.NamedModulesPlugin(),
     // prints more readable module names in the browser console on HMR updates
+
+    // new BundleAnalyzerPlugin(),
   ],
   performance: { hints: NODE_ENV === 'production' },
 };

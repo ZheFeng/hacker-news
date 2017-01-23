@@ -4,29 +4,9 @@ import { handleActions } from 'redux-actions';
 
 import actions from '../actions';
 
-function itemFactory(id): Map<string, *> {
-  return new Map({
-    id,
-    title: 'test title',
-    time: 1484625248277,
-    text: 'test text',
-    url: 'http://test.com',
-  });
-}
-
-function listFactory(list: List<*>): List<*> {
-  const size = list.size;
-  const newList = new List([itemFactory(size), itemFactory(size + 1)]);
-  return list.concat(newList);
-}
-
-function call() {
-
-}
 
 export default handleActions({
-  [actions.fetch]: state => listFactory(state),
-  [actions.setTopic]: () => listFactory(new List()),
+  [actions.setNews]: (state, { payload }) => payload,
 }, new List());
 
 
