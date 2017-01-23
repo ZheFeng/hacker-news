@@ -1,6 +1,7 @@
 // @flow
 import { createStore, applyMiddleware } from 'redux';
 import { createEpicMiddleware, combineEpics } from 'redux-observable';
+import { List } from 'immutable';
 import createLogger from 'redux-logger';
 
 import actions from './actions';
@@ -13,7 +14,7 @@ function fetchEpic(action$, store) {
   .mergeMap(action => fetchNews$(store.getState().get('topic'), 0, 10).map(news => actions.setNews(news)));
 }
 function navigateEpic(action$, store) {
-  return action$.ofType('NAVIGATE').mergeMap(action => fetchNews$(store.getState().get('topic'), 0, 10).map(news => actions.setNews(news)));
+  return action$.ofType('NAVIGATE').mapTo(actions.fetch());
 }
 
 const rootEpic = combineEpics(

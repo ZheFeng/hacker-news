@@ -5,6 +5,7 @@ import { Provider, connect } from 'react-redux';
 import Router from 'react-router-addons-controlled/ControlledBrowserRouter';
 
 import News from './containers/News';
+import Spin from './components/Spin';
 import Layout from './components/Layout';
 import NoMatch from './components/NoMatch';
 import history from './history';
@@ -16,7 +17,7 @@ function mapStateToProps(state) {
   return {
     location: state.get('router').location,
     action: state.get('router').action,
-    topic: state.get('topic'),
+    fetching: state.get('fetching'),
   };
 }
 
@@ -28,14 +29,14 @@ class App extends Component {
       pathname: PropTypes.string.isRequired,
     }).isRequired,
     action: PropTypes.string.isRequired,
-    topic: PropTypes.string.isRequired,
+    fetching: PropTypes.bool.isRequired,
   }
   componentWillMount() {
     const { dispatch } = this.props;
     dispatch(actions.fetch());
   }
   render() {
-    const { dispatch, location, action, topic } = this.props;
+    const { dispatch, location, action, fetching } = this.props;
     return (
       <Router
         history={history}
@@ -64,7 +65,11 @@ class App extends Component {
         <Layout>
           <div className="row justify-content-md-center">
             <div className="col-4">
-              <p>{topic}</p>
+              {
+                fetching ? (
+                  <Spin />
+                ) : null
+              }
               <Match
                 pattern="/:topic"
                 render={() => <News />}

@@ -1,5 +1,5 @@
 // @flow
-import { List, Map } from 'immutable';
+import { List } from 'immutable';
 import { handleActions } from 'redux-actions';
 
 import actions from '../actions';
@@ -7,6 +7,7 @@ import actions from '../actions';
 
 export default handleActions({
   [actions.setNews]: (state, { payload }) => payload,
+  [actions.navigate]: () => new List(),
 }, new List());
 
 
