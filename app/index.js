@@ -1,9 +1,10 @@
 /* eslint-disable react/jsx-filename-extension */
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'rxjs';
+import { AppContainer } from 'react-hot-loader'; // eslint-disable-line
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import { AppContainer } from 'react-hot-loader'; // eslint-disable-line
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './App';
 

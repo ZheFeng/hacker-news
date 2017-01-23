@@ -20,10 +20,14 @@ function listFactory(list: List<*>): List<*> {
   return list.concat(newList);
 }
 
+function call() {
+
+}
+
 export default handleActions({
   [actions.fetch]: state => listFactory(state),
   [actions.setTopic]: () => listFactory(new List()),
-}, listFactory(new List()));
+}, new List());
 
 
 // export default (

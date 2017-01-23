@@ -5,4 +5,5 @@ export default createActions(
   'FETCH',
   'SET_TOPIC',
   'NAVIGATE',
+  'SET_NEWS',
 );

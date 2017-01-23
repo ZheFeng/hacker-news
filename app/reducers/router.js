@@ -16,8 +16,5 @@ const defaultState: routerType = {
 };
 
 export default handleActions({
-  [actions.navigate]: (state, { payload: { location, action } }) => ({
-    location,
-    action,
-  }),
+  [actions.navigate]: (state, { payload }: { payload: routerType }) => payload,
 }, defaultState);

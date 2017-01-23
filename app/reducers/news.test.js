@@ -6,9 +6,9 @@ import { List } from 'immutable';
 import news from './news';
 import actions from '../actions';
 
-
+const list = new List();
 describe('reducer:news', () => {
-  it('return List', () => {
-    expect(List.isList(news(new List(), actions.fetch()))).toBe(true);
+  it('return List on setNews', () => {
+    expect(List.isList(news(list, actions.setNews(list)))).toBe(true);
   });
 });
