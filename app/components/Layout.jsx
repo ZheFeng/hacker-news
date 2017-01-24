@@ -18,9 +18,9 @@ function nav(text, to) {
   );
 }
 const Layout = ({ children }) => (
-  <div>
+  <div style={{ paddingTop: '56px' }}>
     <nav
-      className="navbar navbar-toggleable-md navbar-inverse bg-primary"
+      className="navbar navbar-toggleable-md navbar-inverse bg-primary fixed-top"
     >
       <Link className="navbar-brand" to="/">Hacker News</Link>
       <div className="collapse navbar-collapse" id="navbarNav">
