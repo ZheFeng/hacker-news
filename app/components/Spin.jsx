@@ -5,9 +5,9 @@ const inner = {
   borderRadius: '100%',
   transition: 'all 1000ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
   // position: 'absolute',
-  width: '16px',
-  height: '16px',
-  border: '1px solid #0275d8',
+  width: '32px',
+  height: '32px',
+  border: '2px solid #0275d8',
   borderRightColor: 'transparent',
   borderLeftColor: 'transparent',
   transform: 'rotate(0deg)',
@@ -19,13 +19,16 @@ class Spin extends Component {
     rotate: 0,
   }
   componentDidMount() {
-    setTimeout(this.setPercentage.bind(this), 100);
+    this.timer = setTimeout(this.setPercentage.bind(this), 100);
+  }
+  componentWillUnmount() {
+    clearTimeout(this.timer);
   }
   setPercentage() {
     const { rotate } = this.state;
     return this.setState(
       { rotate: rotate + 180 },
-      () => setTimeout(this.setPercentage.bind(this), 1000),
+      () => this.timer = setTimeout(this.setPercentage.bind(this), 1000),
     );
   }
   render() {
@@ -35,6 +38,7 @@ class Spin extends Component {
       <div><div style={style} /></div>
     );
   }
+  timer = null
 }
 
 

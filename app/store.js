@@ -8,10 +8,22 @@ import actions from './actions';
 import Store from './reducers';
 import { fetchNews$ } from './api';
 
+const numberPerPage = 5;
+
+function pageCount(store, page) {
+  if (page && page.topic === store.getState().get('topic')) {
+    return { topic: page.topic, count: page.count + 1 };
+  }
+  return { topic: store.getState().get('topic'), count: 0 };
+}
 
 function fetchEpic(action$, store) {
   return action$.ofType('FETCH')
-  .mergeMap(action => fetchNews$(store.getState().get('topic'), 0, 10).map(news => actions.setNews(news)));
+  .scan(pageCount.bind(null, store), null)
+  .mergeMap((page) => {
+    console.log(page);
+    return fetchNews$(store.getState().get('topic'), page.count * numberPerPage, numberPerPage).map(actions.setNews);
+  });
 }
 function navigateEpic(action$, store) {
   return action$.ofType('NAVIGATE').mapTo(actions.fetch());

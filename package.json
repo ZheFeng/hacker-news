@@ -41,6 +41,7 @@
     "react-redux": "^5.0.2",
     "react-router": "next",
     "react-router-addons-controlled": "^0.0.1",
+    "react-waypoint": "^5.0.3",
     "redux": "^3.6.0",
     "redux-actions": "^1.2.0",
     "redux-immutable": "^3.0.10",

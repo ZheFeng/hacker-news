@@ -23,4 +23,9 @@ describe('reducer:news', () => {
     expect(state.size).toBe(3);
     expect(news(state, actions.navigate(route)).size).toBe(0);
   });
+  it('concat list when set more news', () => {
+    const state = news(new List(), actions.setNews(list));
+    expect(state.size).toBe(3);
+    expect(news(state, actions.setNews(list)).size).toBe(6);
+  });
 });

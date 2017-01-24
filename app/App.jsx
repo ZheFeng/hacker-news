@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { Match, Miss } from 'react-router';
 import { Provider, connect } from 'react-redux';
 import Router from 'react-router-addons-controlled/ControlledBrowserRouter';
+import Waypoint from 'react-waypoint';
 
 import News from './containers/News';
 import Spin from './components/Spin';
@@ -32,6 +33,9 @@ class App extends Component {
     fetching: PropTypes.bool.isRequired,
   }
   componentWillMount() {
+    this.onFetch();
+  }
+  onFetch() {
     const { dispatch } = this.props;
     dispatch(actions.fetch());
   }
@@ -65,11 +69,6 @@ class App extends Component {
         <Layout>
           <div className="row justify-content-md-center">
             <div className="col-4">
-              {
-                fetching ? (
-                  <Spin />
-                ) : null
-              }
               <Match
                 pattern="/:topic"
                 render={() => <News />}
@@ -78,7 +77,25 @@ class App extends Component {
                 pattern="/" exactly
                 render={() => <News />}
               />
-
+              <div
+                style={{
+                  margin: '50px',
+                  textAlign: 'center',
+                  position: 'relative',
+                }}
+              >
+                {
+                  fetching ? (<Spin />) : (
+                    <button
+                      className="btn btn-primary"
+                      onClick={this.onFetch.bind(this)}
+                    >
+                      Load
+                    </button>
+                  )
+                }
+                <Waypoint onEnter={this.onFetch.bind(this)} />
+              </div>
             </div>
           </div>
           <Miss component={NoMatch} />

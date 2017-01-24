@@ -6,7 +6,7 @@ import actions from '../actions';
 
 
 export default handleActions({
-  [actions.setNews]: (state, { payload }) => payload,
+  [actions.setNews]: (state, { payload }) => state.concat(payload),
   [actions.navigate]: () => new List(),
 }, new List());
 
