@@ -29,11 +29,11 @@ Libs:
 * [RxJS (ReactiveX)](http://reactivex.io/rxjs/)
 * [Bootstrap 4](https://v4-alpha.getbootstrap.com/)
 
-## How to run the project
+## How
 
-Install <a href="https://yarnpkg.com/en/docs/install" target="_blank">yarn</a>
+Install <a href="https://yarnpkg.com/en/docs/install" target="_blank">yarn</a> first
 
-Then
+##### Run the project
 ```
 yarn install
 NODE_ENV=development yarn run develop
@@ -41,10 +41,10 @@ NODE_ENV=development yarn run develop
 Then go to
 [http://localhost:8080](http://localhost:8080)
 
-### How to test
+##### Test the project
 ```
 NODE_ENV=test yarn test
 ```
 
 
-[Test Coverage](http://localhost:8080/coverage/lcov-report/index.html)
+Then go to [Test Coverage](http://localhost:8080/coverage/lcov-report/index.html)
