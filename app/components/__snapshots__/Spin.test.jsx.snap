@@ -4,9 +4,8 @@ exports[`<Spin /> Snapshot Test 1`] = `
     style={
       Object {
         "border": "2px solid #0275d8",
-        "borderLeftColor": "transparent",
         "borderRadius": "100%",
-        "borderRightColor": "transparent",
+        "borderTopColor": "transparent",
         "height": "32px",
         "margin": "0 auto",
         "transform": "rotate(0deg)",

@@ -8,8 +8,7 @@ const inner = {
   width: '32px',
   height: '32px',
   border: '2px solid #0275d8',
-  borderRightColor: 'transparent',
-  borderLeftColor: 'transparent',
+  borderTopColor: 'transparent',
   transform: 'rotate(0deg)',
   margin: '0 auto',
 };
