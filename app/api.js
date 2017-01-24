@@ -61,3 +61,10 @@ export function fetchNews$(
 ) {
   return Observable.create(fetchNews.bind(null, topic, start, numberPerPage));
 }
+export function fetchItem$(
+  topic: string,
+  start: number,
+  numberPerPage: number,
+) {
+  return Observable.create(fetchNews.bind(null, topic, start, numberPerPage));
+}

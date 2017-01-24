@@ -24,6 +24,10 @@ function mapStateToProps(state) {
 
 
 class App extends Component {
+  constructor() {
+    super();
+    (this: any).onFetch = this.onFetch.bind(this);
+  }
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     location: PropTypes.shape({
@@ -88,13 +92,13 @@ class App extends Component {
                   fetching ? (<Spin />) : (
                     <button
                       className="btn btn-primary"
-                      onClick={this.onFetch.bind(this)}
+                      onClick={this.onFetch}
                     >
                       Load
                     </button>
                   )
                 }
-                <Waypoint onEnter={this.onFetch.bind(this)} />
+                <Waypoint onEnter={this.onFetch} />
               </div>
             </div>
           </div>

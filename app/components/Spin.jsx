@@ -18,17 +18,20 @@ class Spin extends Component {
     rotate: 0,
   }
   componentDidMount() {
-    this.timer = setTimeout(this.setPercentage.bind(this), 100);
+    this.setRotateLater(100);
   }
   componentWillUnmount() {
     clearTimeout(this.timer);
   }
-  setPercentage() {
+  setRotate() {
     const { rotate } = this.state;
     return this.setState(
       { rotate: rotate + 180 },
-      () => this.timer = setTimeout(this.setPercentage.bind(this), 1000),
+      this.setRotateLater.bind(this, 1000),
     );
+  }
+  setRotateLater(ms: number) {
+    this.timer = setTimeout(this.setRotate.bind(this), ms);
   }
   render() {
     const { rotate } = this.state;
