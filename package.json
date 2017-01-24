@@ -15,7 +15,7 @@
   },
   "jest": {
     "verbose": true,
-    "collectCoverage": false,
+    "collectCoverage": true,
     "coverageDirectory": "static/coverage",
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"

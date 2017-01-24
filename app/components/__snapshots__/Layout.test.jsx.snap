@@ -1,7 +1,12 @@
 exports[`<Layout /> Snapshot Test 1`] = `
-<div>
+<div
+  style={
+    Object {
+      "paddingTop": "56px",
+    }
+  }>
   <nav
-    className="navbar navbar-toggleable-md navbar-inverse bg-primary">
+    className="navbar navbar-toggleable-md navbar-inverse bg-primary fixed-top">
     <a
       className="navbar-brand"
       href="/"
