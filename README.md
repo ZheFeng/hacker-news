@@ -1,5 +1,11 @@
 # Hacker news app
 
+[![Build Status](https://travis-ci.org/ZheFeng/hacker-news.svg?branch=master)](https://travis-ci.org/ZheFeng/hacker-news)
+
+[Live Demo](https://zhe-hacker-news.herokuapp.com/)
+
+[Live Test Coverage](https://zhe-hacker-news.herokuapp.com/static/coverage/lcov-report/index.html)
+
 ## Why
 
 There are many javascript tools and libs I want to use. The best way to learn them is use them to build something. That's why this project exists.
@@ -31,9 +37,10 @@ Libs:
 
 ## How
 
+
+##### [Live Demo](https://zhe-hacker-news.herokuapp.com/) Or Run the project locally
 Install <a href="https://yarnpkg.com/en/docs/install" target="_blank">yarn</a> first
 
-##### Run the project
 ```
 yarn install
 NODE_ENV=development yarn run develop
@@ -41,10 +48,11 @@ NODE_ENV=development yarn run develop
 Then go to
 [http://localhost:8080](http://localhost:8080)
 
-##### Test the project
+
+##### [Live Test Coverage](https://zhe-hacker-news.herokuapp.com/static/coverage/lcov-report/index.html) Or Test the project locally
 ```
 NODE_ENV=test yarn test
 ```
 
 
-Then go to [Test Coverage](http://localhost:8080/coverage/lcov-report/index.html)
+Then go to [Local Test Coverage](http://localhost:8080/coverage/lcov-report/index.html)
