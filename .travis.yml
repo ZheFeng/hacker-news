@@ -1,6 +1,10 @@
 language: node_js
 node_js:
 - '6'
+test:
+  - NODE_ENV=test yarn test
+before_deploy:
+  - NODE_ENV=production yarn build
 deploy:
   provider: heroku
   api_key:
