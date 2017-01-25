@@ -10,8 +10,14 @@ import rootEpic from './epics';
 const epicMiddleware = createEpicMiddleware(rootEpic);
 const loggerMiddleware = createLogger({ stateTransformer: s => s.toJS() });
 
+const middlewares = [epicMiddleware];
+
+if (process.env.NODE_ENV !== 'production') {
+  middlewares.push(loggerMiddleware);
+}
+
 const store = createStore(
     Store,
-    applyMiddleware(epicMiddleware, loggerMiddleware),
+    applyMiddleware(...middlewares),
   );
 export default store;

@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
+    "express": "^4.14.0",
     "extensible-runtime": "^4.0.1",
     "history": "^4.5.1",
     "immutable": "^3.8.1",
@@ -75,6 +76,7 @@
     "react-test-renderer": "^15.4.2",
     "redux-logger": "^2.7.4",
     "style-loader": "^0.13.1",
+    "uglifyjs-webpack-plugin": "^0.1.0",
     "webpack": "2.2.0-rc.3",
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-server": "2.1.0-beta.0"
