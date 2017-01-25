@@ -6,7 +6,8 @@ import renderer from 'react-test-renderer';
 import ContentItem from './ContentItem';
 
 const title = 'test title';
-const time = 1484625248277;
+const d = new Date(2010, 1, 1);
+const time = d.getTime();
 const text = 'test text';
 const url = 'http://test.com';
 

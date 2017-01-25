@@ -6,11 +6,12 @@ import { Map, List } from 'immutable';
 
 import ContentList from './ContentList';
 
+const d = new Date(2010, 1, 1);
 function itemFactory(id): Map {
   return new Map({
     id,
     title: 'test title',
-    time: 1484625248277,
+    time: d.getTime(),
     text: 'test text',
     url: 'http://test.com',
   });
