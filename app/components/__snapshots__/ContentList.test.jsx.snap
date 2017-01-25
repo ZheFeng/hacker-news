@@ -15,7 +15,7 @@ exports[`<ContentList /> Snapshot Test 1`] = `
       </h4>
       <h6
         className="card-subtitle mb-2 text-muted">
-        Thu Jun 11 42054
+        Mon Feb 01 2010
       </h6>
       <p
         className="card-text">
@@ -45,7 +45,7 @@ exports[`<ContentList /> Snapshot Test 1`] = `
       </h4>
       <h6
         className="card-subtitle mb-2 text-muted">
-        Thu Jun 11 42054
+        Mon Feb 01 2010
       </h6>
       <p
         className="card-text">

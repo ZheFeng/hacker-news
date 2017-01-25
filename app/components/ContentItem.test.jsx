@@ -7,7 +7,7 @@ import ContentItem from './ContentItem';
 
 const title = 'test title';
 const d = new Date(2010, 1, 1);
-const time = d.getTime();
+const time = d.getTime() / 1000;
 const text = 'test text';
 const url = 'http://test.com';
 

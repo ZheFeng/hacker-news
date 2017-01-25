@@ -11,7 +11,7 @@ function itemFactory(id): Map {
   return new Map({
     id,
     title: 'test title',
-    time: d.getTime(),
+    time: d.getTime() / 1000,
     text: 'test text',
     url: 'http://test.com',
   });
