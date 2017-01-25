@@ -36,9 +36,6 @@ class App extends Component {
     action: PropTypes.string.isRequired,
     fetching: PropTypes.bool.isRequired,
   }
-  componentWillMount() {
-    this.onFetch();
-  }
   onFetch() {
     const { dispatch } = this.props;
     dispatch(actions.fetch());
