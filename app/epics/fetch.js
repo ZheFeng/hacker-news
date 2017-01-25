@@ -2,7 +2,7 @@
 import actions from '../actions';
 import { fetchNews$ } from '../api';
 
-const numberPerPage = 5;
+const numberPerPage = 10;
 
 function pageCount(store, page) {
   if (page && page.topic === store.getState().get('topic')) {
