@@ -2,9 +2,8 @@
 
 [![Build Status](https://travis-ci.org/ZheFeng/hacker-news.svg?branch=master)](https://travis-ci.org/ZheFeng/hacker-news)
 
-[Live Demo](https://zhe-hacker-news.herokuapp.com/)
 
-[Live Test Coverage](https://zhe-hacker-news.herokuapp.com/static/coverage/lcov-report/index.html)
+#### [Live Demo](https://zhe-hacker-news.herokuapp.com/) and [Live Test Coverage](https://zhe-hacker-news.herokuapp.com/static/coverage/lcov-report/index.html)
 
 ## Why
 
@@ -35,10 +34,8 @@ Libs:
 * [RxJS (ReactiveX)](http://reactivex.io/rxjs/)
 * [Bootstrap 4](https://v4-alpha.getbootstrap.com/)
 
-## How
+## How to run locally
 
-
-##### [Live Demo](https://zhe-hacker-news.herokuapp.com/) Or Run the project locally
 Install <a href="https://yarnpkg.com/en/docs/install" target="_blank">yarn</a> first
 
 ```
@@ -49,7 +46,7 @@ Then go to
 [http://localhost:8080](http://localhost:8080)
 
 
-##### [Live Test Coverage](https://zhe-hacker-news.herokuapp.com/static/coverage/lcov-report/index.html) Or Test the project locally
+Test
 ```
 NODE_ENV=test yarn test
 ```
