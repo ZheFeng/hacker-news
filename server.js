@@ -6,7 +6,7 @@ const app = express();
 app.use('/static', express.static('static'));
 
 app.get('*', (req, res) => {
-  res.sendFile(`${__dirname}/static/index.html`);
+  res.sendFile(`${__dirname}/static/index.server.html`);
 });
 
 const port = process.env.PORT || 3000;
