@@ -12,12 +12,14 @@ There are many javascript tools and libs I want to use. The best way to learn th
 ## What
 
 I will build a very simple hacker news app for different environment:
-* Web
-* Windows 10 (todo)
-* Ubuntu (todo)
-* macOS (todo)
-* iOS (todo)
-* Android (todo)
+- [x] [Web](https://zhe-hacker-news.herokuapp.com/)
+- [ ] Windows 10
+- [ ] Ubuntu
+- [ ] macOS
+- [ ] iOS
+- [ ] Android
+
+
 
 Tools:
 * [Webpack 2](https://webpack.js.org/)
