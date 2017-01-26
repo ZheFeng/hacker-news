@@ -6,17 +6,17 @@
   "author": "Zhe Feng <zhe@jumiduo.com>",
   "license": "MIT",
   "scripts": {
-    "eslint": "eslint",
     "start": "node server.js",
-    "test": "jest",
-    "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "build": "webpack",
-    "predevelop": "flow-typed install --overwrite",
+    "test": "jest --coverage",
+    "eslint": "eslint",
+    "flow": "flow; test $? -eq 0 -o $? -eq 2",
+    "watch-test": "jest --watchAll",
+    "flow-typed": "flow-typed install --overwrite",
     "develop": "webpack-dev-server"
   },
   "jest": {
     "verbose": true,
-    "collectCoverage": true,
     "coverageDirectory": "static/coverage",
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
