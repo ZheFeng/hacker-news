@@ -68,8 +68,10 @@ class App extends Component {
         }}
       >
         <Layout>
-          <div className="row justify-content-lg-center">
-            <div className="col-lg-6">
+          <div
+            className="row justify-content-lg-center justify-content-md-center"
+          >
+            <div className="col-lg-6 col-md-10">
               <Match
                 pattern="/:topic"
                 render={() => <News />}
